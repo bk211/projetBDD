@@ -1,0 +1,10 @@
+>>TAUX D'INCIDENCE
+https://www.data.gouv.fr/fr/datasets/taux-dincidence-de-lepidemie-de-covid-19/
+
+Le taux d'incidence correspond au nombre de tests positifs pour 100.000 habitants. Il est calculé de la manière suivante :
+(100000 * nombre de cas positif) / Population
+
+
+Taux d’incidence - quotidien - France:
+    >>sp-pe-tb-quot-reg-2021-05-09-19h05.csv
+
