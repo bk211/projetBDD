@@ -1,0 +1,14 @@
+SHOW search_path;
+SET search_path TO tp_caic;
+SHOW search_path;
+
+\help
+\? toutes les commandes
+\i comandes.sql import un fichier de commandes
+\d info table
+\echo message
+\e edition derniere msg
+\! ls  effectue la commande ls
+\cd changement repertoire
+CTRL-a debut ligne
+CTRL-e fin de ligne
