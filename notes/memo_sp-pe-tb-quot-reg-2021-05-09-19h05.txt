@@ -1,0 +1,10 @@
+colonnes:
+reg
+jour
+P_f
+P_h
+P
+pop_f
+pop_h
+cl_age90
+pop
