@@ -1,10 +1,10 @@
 colonnes:
-reg
-jour
-P_f
-P_h
-P
-pop_f
-pop_h
-cl_age90
-pop
+reg string region 
+jour Date 
+P_f float Nombre de test positif chez les femmes
+P_h float Nombre de test positif chez les hommes 
+P Nombre de test positif
+pop_f population de reference femme
+pop_h population de reference homme
+cl_age90 class d'age
+pop population de reference -> Reference population (department, region, national)

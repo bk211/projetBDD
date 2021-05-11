@@ -8,9 +8,9 @@ DROP TABLE IF EXISTS "sp-pe-tb-quot-reg-2021-05-09-19h05";
 CREATE TABLE "sp-pe-tb-quot-reg-2021-05-09-19h05"(
     reg char(10),
     jour Date,
-    p_f int,
-    p_h int,
-    P int,
+    "P_f" int,
+    "P_h" int,
+    "P" int,
     pop_f float,
     pop_h float,
     cl_age90 int,
@@ -22,4 +22,4 @@ SET DATESTYLE TO YMD;
 SHOW DATESTYLE;
 
 
-\COPY "sp-pe-tb-quot-reg-2021-05-09-19h05" FROM csv_input/sp-pe-tb-quot-reg-2021-05-09-19h05.csv  DELIMITER ';'  CSV HEADER;
+\COPY "sp-pe-tb-quot-reg-2021-05-09-19h05" FROM csv_input/sp-pe-tb-quot-reg-2021-05-09-19h05.csv WITH NULL AS '' DELIMITER ';'  CSV HEADER;

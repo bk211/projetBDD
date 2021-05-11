@@ -11,7 +11,7 @@ chown: cannot read directory '/var/lib/postgres/data': Permission denied
 chown: changing ownership of '/var/lib/postgres/': Operation not permitted
 ➜  / sudo chown -R postgres:postgres /var/lib/postgres/
 ➜  / sudo -u postgres -i                              
-[postgres@playmaker-Y720 ~]$ initdb --local en_US.UTF-8 -D '/var/lib/postgres/data'
+[postgres@playmaker-Y720 ~]$ initdb --local fr_FR.UTF-8 -D '/var/lib/postgres/data'
 The files belonging to this database system will be owned by user "postgres".
 This user must also own the server process.
 
