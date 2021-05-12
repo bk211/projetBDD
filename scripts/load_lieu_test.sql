@@ -1,22 +1,31 @@
 \echo >Loading table lieu_test 
-\echo >Make sure that you are currently at projet root
-\echo 
-\echo >Creating table, >!Old table will be droped!<
---\echo ;
-DROP TABLE IF EXISTS lieu_test;
-\echo >
-CREATE TABLE lieu_test(
-    id_lieu SERIAL PRIMARY KEY,
-    nom_lieu varchar,
-    type_lieu varchar,
-    numero_adresse varchar,
-    nom_rue varchar,
-    code_postal varchar,
-    nom_commune varchar,
-    date Date
-);
 
 \echo Altering datestyle
 SET DATESTYLE TO YMD;
 SHOW DATESTYLE;
+
+
+DROP TABLE IF EXISTS prep_donnee_labo;
+CREATE TEMP TABLE prep_donnee_labo(
+    finess_associe varchar,
+    titre varchar,
+    type_de_test varchar,
+    adresse_voir_1 varchar,
+    adresse_voir_2 varchar,
+    adresse_codepostale varchar,
+    adresse_ville varchar, 
+    modalite_accueil varchar,
+    "telephone(s)" varchar   
+
+);
+\echo 
+
+\COPY prep_donnee_labo FROM csv_input/santefr-lieux-depistage-covid-laboratoires.csv WITH NULL AS '' DELIMITER ';'  CSV HEADER;
+
+
+INSERT INTO lieu_test(nom_lieu, type_lieu, numero_adresse, nom_rue, code_postal, nom_commune)
+SELECT 
+--INSERT into personne_test(nom, prenom, sexe, domicile, birthdate)
+--SELECT nom, prenom, sexe, domicile, birthdate from prep_donne_labo;
+
 

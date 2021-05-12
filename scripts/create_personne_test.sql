@@ -12,7 +12,8 @@ CREATE TABLE personne_test(
     sexe varchar,
     age int,
     domicile varchar,
-    birthdate Date
+    birthdate Date,
+    UNIQUE(nom, prenom, sexe, age, domicile, birthdate)
 );
 
 
@@ -33,4 +34,3 @@ BEFORE INSERT OR UPDATE
 ON personne_test
 FOR EACH ROW
 EXECUTE PROCEDURE trigger_find_age();
-
