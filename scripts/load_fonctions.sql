@@ -12,3 +12,35 @@ BEGIN
     date_part('year', age(_date::date))::int;
 END
 $$;
+
+-- choisit un nombre comprise entre inf et sup incluse
+CREATE OR REPLACE FUNCTION get_random_number(int, int) RETURNS integer AS
+$$
+BEGIN
+	RETURN trunc(random() * ($2-$1 + 1) + $1);
+END;
+$$
+LANGUAGE plpgsql;
+
+
+-- choisit au hasard une date entre le debut et la fin incluse
+CREATE OR REPLACE FUNCTION 
+get_random_date(_begin date,_end date)
+RETURNS date
+LANGUAGE plpgsql
+AS $$
+DECLARE 
+    resultat date;
+    interval int;
+    random_day int;
+BEGIN
+    interval := _end - _begin;
+    random_day := get_random_number(0, interval);
+    resultat := _begin + random_day;
+    return resultat;
+END
+$$;
+
+
+--SELECT get_random_date('2010-01-01', '2020-01-01');
+--SELECT get_random_number(2,5);

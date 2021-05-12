@@ -13,8 +13,8 @@ CREATE TEMP TABLE fake_profile(
 \COPY fake_profile FROM csv_input/fake_profile.csv WITH NULL AS '' DELIMITER ','  CSV HEADER;
 
 
-INSERT into personne_test(nom, prenom, sexe, domicile, birthdate)
-SELECT nom, prenom, sexe, domicile, birthdate from fake_profile;
+--INSERT into personne_test(nom, prenom, sexe, domicile, birthdate)
+--SELECT nom, prenom, sexe, domicile, birthdate from fake_profile;
 
 
 PREPARE insert_personne_test(varchar, varchar, varchar, varchar, varchar) as
@@ -23,3 +23,10 @@ PREPARE insert_personne_test(varchar, varchar, varchar, varchar, varchar) as
 
 PREPARE found_personne_test(varchar, varchar) as
     SELECT * from personne_test where nom =$1 and prenom = $2;
+
+
+PREPARE fill_personne_test(int) AS
+    insert into INSERT into personne_test(nom, prenom, sexe, domicile, birthdate)
+--SELECT nom, prenom, sexe, domicile, birthdate from fake_profile;
+
+
