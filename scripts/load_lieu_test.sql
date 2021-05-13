@@ -10,8 +10,8 @@ CREATE TEMP TABLE prep_donnee_labo(
     finess_associe varchar,
     titre varchar,
     type_de_test varchar,
-    adresse_voir_1 varchar,
-    adresse_voir_2 varchar,
+    "adresse_voie 1" varchar,
+    "adresse_voie 2" varchar,
     adresse_codepostale varchar,
     adresse_ville varchar, 
     modalite_accueil varchar,
@@ -22,10 +22,21 @@ CREATE TEMP TABLE prep_donnee_labo(
 
 \COPY prep_donnee_labo FROM csv_input/santefr-lieux-depistage-covid-laboratoires.csv WITH NULL AS '' DELIMITER ';'  CSV HEADER;
 
+alter table prep_donnee_labo drop column modalite_accueil;
 
-INSERT INTO lieu_test(nom_lieu, type_lieu, numero_adresse, nom_rue, code_postal, nom_commune)
-SELECT 
---INSERT into personne_test(nom, prenom, sexe, domicile, birthdate)
---SELECT nom, prenom, sexe, domicile, birthdate from prep_donne_labo;
+--drop function fill;
+CREATE OR REPLACE FUNCTION fill(nb int)
+RETURNS boolean
+LANGUAGE plpgsql
+AS $$
+DECLARE
+BEGIN
+    INSERT into lieu_test(nom_lieu, type_lieu, adresse, code_postal, adresse_ville)
+        SELECT titre, 'laboratoire', "adresse_voie 1", adresse_codepostale, adresse_ville from prep_donnee_labo order by random() limit nb;
+    return true;
+END
+$$;
 
 
+select fill(10);
+select * from lieu_test limit 100;

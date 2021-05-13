@@ -9,15 +9,10 @@ CREATE TABLE lieu_test(
     id_lieu SERIAL PRIMARY KEY,
     nom_lieu varchar,
     type_lieu varchar,
-    numero_adresse varchar,
-    nom_rue varchar,
+    adresse varchar,
     code_postal varchar,
-    nom_commune varchar,
-    date Date,
-    UNIQUE(nom_lieu, type_lieu, numero_adresse,nom_rue, code_postal, nom_commune)
+    adresse_ville varchar,
+    UNIQUE(nom_lieu, type_lieu, adresse, code_postal, adresse_ville)
 );
 
 
-DEALLOCATE get_column_name;
-PREPARE get_column_name (text) AS
-    SELECT column_name from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME =$1;
