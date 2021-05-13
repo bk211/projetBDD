@@ -24,8 +24,8 @@ CREATE TEMP TABLE prep_donnee_labo(
 
 alter table prep_donnee_labo drop column modalite_accueil;
 
---drop function fill;
-CREATE OR REPLACE FUNCTION fill(nb int)
+--drop function fill_lieu_test;
+CREATE OR REPLACE FUNCTION fill_lieu_test(nb int)
 RETURNS boolean
 LANGUAGE plpgsql
 AS $$
@@ -38,5 +38,5 @@ END
 $$;
 
 
-select fill(10);
-select * from lieu_test limit 100;
+select fill(1000);
+select count(*) from lieu_test;
