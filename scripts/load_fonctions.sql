@@ -13,17 +13,17 @@ BEGIN
 END
 $$;
 
--- choisit un nombre comprise entre inf et sup incluse
+-- choisit un nombre comprise entre inf et sup excluse
 CREATE OR REPLACE FUNCTION get_random_number(int, int) RETURNS integer AS
 $$
 BEGIN
-	RETURN trunc(random() * ($2-$1 + 1) + $1);
+	RETURN trunc(random() * ($2-$1) + $1);
 END;
 $$
 LANGUAGE plpgsql;
 
 
--- choisit au hasard une date entre le debut et la fin incluse
+-- choisit au hasard une date entre le debut et la fin excluse
 CREATE OR REPLACE FUNCTION 
 get_random_date(_begin date,_end date)
 RETURNS date

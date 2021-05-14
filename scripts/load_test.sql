@@ -27,7 +27,7 @@ BEGIN
     random_nb := get_random_number(1,100);
     --raise notice 'chosen number: %', random_nb;
     return
-        query select variant from variant_prob where lower_prob < random_nb and upper_prob > random_nb;
+        query select variant from variant_prob where lower_prob < random_nb and upper_prob >= random_nb;
 END
 $$;
 
