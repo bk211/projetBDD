@@ -34,3 +34,4 @@ BEFORE INSERT OR UPDATE
 ON personne_test
 FOR EACH ROW
 EXECUTE PROCEDURE trigger_find_age();
+

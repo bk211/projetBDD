@@ -1,8 +1,7 @@
 \i scripts/create_personne_test.sql
 \i scripts/load_prepares.sql
 
-\echo Table vide:
-
+\echo DEMO personne_test
 \echo insertion via prepare insert_personne_test 
 EXECUTE insert_personne_test('Dupont', 'Pierre', 'M', '15 rue sophie germain', '1997-11-11');
 EXECUTE insert_personne_test('Durand', 'Marie', 'F', '15 rue sophie germain', '2000-11-11');
