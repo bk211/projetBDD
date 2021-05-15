@@ -72,5 +72,3 @@ END
 $$;
 
 
-
-select found_lieu_test_by_name('labo1');

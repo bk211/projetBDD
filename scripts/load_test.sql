@@ -49,7 +49,7 @@ DECLARE
     lieu lieu_test%ROWTYPE;
 BEGIN
     counter :=0;
-    
+    truncate pool_lieu_test;
     WHILE counter < nb LOOP
         FOR lieu IN curs_lieu_test LOOP
             --raise notice 'counter = %', counter;
@@ -73,7 +73,7 @@ $$;
 
 
 
-CREATE OR REPLACE FUNCTION fill(nb int)
+CREATE OR REPLACE FUNCTION fill_test(nb int)
 RETURNS boolean
 LANGUAGE plpgsql
 AS $$
@@ -100,17 +100,17 @@ BEGIN
         END IF;
         
         fetch from curs_lieu_test into _lieu_test;
+        _resultat := get_random_number(0,1);
+        _variant := draw_variant();
+        _date := get_random_date('2020-05-01', '2021-05-01');
+        --raise notice 'chosen resultat: %' ,_resultat;
         --raise notice 'counter = %', counter;
         --raise notice 'chosen id_lieu_test: %' ,_lieu_test;
         --raise notice 'chosen id_personne: %' ,_personne;
-        _resultat := get_random_number(0,1);
-        --raise notice 'chosen resultat: %' ,_resultat;
-        _variant := draw_variant();
         --raise notice 'chosen variant : %', _variant;
-        _date := get_random_date('2020-05-01', '2021-05-01');
         --raise notice 'chosen date: %' , _date;
         
-        insert into test(id_lieu, id_personne, resultat, variant, date) values(_lieu_test, _personne, _resultat,_variant, _date);
+        insert into test(id_lieu, id_personne, resultat, variant, date) values(_lieu_test, _personne.id_personne, _resultat,_variant, _date);
 
 
     END LOOP;
@@ -119,8 +119,3 @@ BEGIN
     return true;
 END
 $$;
-
-
-
-select fill(10);
-select * from test;

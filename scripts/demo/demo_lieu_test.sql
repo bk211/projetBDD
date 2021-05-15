@@ -1,7 +1,6 @@
-\i scripts/create_lieu_test.sql
-\i scripts/load_prepares.sql
+\i scripts/create_test.sql
 
-\echo demo lieu_test
+\echo demo test
 truncate table lieu_test;
 
 select * from lieu_test;
