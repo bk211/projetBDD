@@ -4,7 +4,7 @@ https://www.data.gouv.fr/fr/datasets/taux-dincidence-de-lepidemie-de-covid-19/
 >>NB TEST
 https://www.data.gouv.fr/fr/datasets/donnees-relatives-aux-resultats-des-tests-virologiques-covid-19/
 
-les 2 dataset donne tous les 2 le taux de positivite
+les 2 datasets donnent tous les 2 le taux de positivite
 
 Le taux d'incidence correspond au nombre de tests positifs pour 100.000 habitants. Il est calculé de la manière suivante :
 (100000 * nombre de cas positif) / Population
