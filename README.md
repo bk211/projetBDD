@@ -26,3 +26,9 @@ Il s'agit de demo pour les 3 tables présentés dans le rapport, pour les lancer
 ***\i scripts/demo/demo_personne_test.sql*** <br>
 ***\i scripts/demo/demo_lieu_test.sql*** <br>
 ***\i scripts/demo/demo_test.sql*** <br>
+
+# Répertoire scripts/chargement_donnée_gouvernement/
+Il s'agit d'une répertoire qui charge des dataset donnée du gouvernement
+
+# Répertoire CSV_input
+Vous trouverez toutes les donnée .csv de source pour nos tables
