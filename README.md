@@ -3,6 +3,8 @@
 # Scripts de chargement
 Il y a 3 scripts de chargement en tout
 
+Tout d'abord, rentrez dans le path où se trouve le dossier du projet (\cd ".../projetBDD")
+
 # create_all.sql -> créer toutes les tables ainsi que les fonctions et prepares associés <br>
 Commande exacte: 
 ***\i scripts/create_all.sql***
