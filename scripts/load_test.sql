@@ -2,7 +2,6 @@
 SET DATESTYLE TO YMD;
 --SHOW DATESTYLE;
 
---select * from test;
 
 DROP TABLE IF EXISTS variant_prob;
 CREATE TABLE variant_prob(
@@ -15,7 +14,7 @@ CREATE TABLE variant_prob(
 
 --select * from variant_prob;
 
-
+--choisie au hasard un variant selon la table des probabilité des variant_prob
 CREATE OR REPLACE FUNCTION draw_variant()
 RETURNS 
 Table(nom_variant varchar)
@@ -35,8 +34,8 @@ $$;
 
 
 
-DROP TABLE IF EXISTS pool_lieu_test;
 
+DROP TABLE IF EXISTS pool_lieu_test;
 CREATE TABLE pool_lieu_test (
     id_lieu int,
     nom_lieu varchar,

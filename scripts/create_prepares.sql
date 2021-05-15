@@ -1,3 +1,4 @@
+\echo =>Chargement des prepares
 DEALLOCATE get_column_name;
 PREPARE get_column_name (text) AS
     SELECT column_name from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME =$1;
@@ -30,3 +31,4 @@ PREPARE delete_personne_test(int) AS
     DELETE FROM personne_test where id_personne = $1;
 
 
+\echo =>Fin de chargement des prepares
