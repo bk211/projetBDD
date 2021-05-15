@@ -36,7 +36,3 @@ BEGIN
     return true;
 END
 $$;
-
-
-select fill(1000);
-select count(*) from lieu_test;
