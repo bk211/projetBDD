@@ -33,8 +33,6 @@ $$;
 --select draw_variant();
 
 
-
-
 DROP TABLE IF EXISTS pool_lieu_test;
 CREATE TABLE pool_lieu_test (
     id_lieu int,
