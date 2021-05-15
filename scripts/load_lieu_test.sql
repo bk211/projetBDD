@@ -16,13 +16,10 @@ CREATE TEMP TABLE prep_donnee_labo(
     adresse_ville varchar, 
     modalite_accueil varchar,
     "telephone(s)" varchar   
-
 );
-\echo 
 
 \COPY prep_donnee_labo FROM csv_input/santefr-lieux-depistage-covid-laboratoires.csv WITH NULL AS '' DELIMITER ';'  CSV HEADER;
 
-alter table prep_donnee_labo drop column modalite_accueil;
 
 --drop function fill_lieu_test;
 CREATE OR REPLACE FUNCTION fill_lieu_test(nb int)
@@ -32,7 +29,8 @@ AS $$
 DECLARE
 BEGIN
     INSERT into lieu_test(nom_lieu, type_lieu, adresse, code_postal, adresse_ville)
-        SELECT titre, 'laboratoire', "adresse_voie 1", adresse_codepostale, adresse_ville from prep_donnee_labo order by random() limit nb;
+        SELECT DISTINCT titre, 'laboratoire', "adresse_voie 1", adresse_codepostale, adresse_ville from prep_donnee_labo order by titre limit nb
+        ON CONFLICT ON CONSTRAINT unique_v DO NOTHING;
     return true;
 END
 $$;

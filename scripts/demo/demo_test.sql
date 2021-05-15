@@ -26,10 +26,9 @@ select found_test_precise(2,2,1,'FR', '2020-09-01');
 \echo update by id
 select update_test(4, 2, 4, 0, 'UK', '2029-01-01');
 
-
 \i scripts/load_test.sql
-select fill_lieu_test(100);
-select * from lieu_test limit 10;
+select fill_test(1000);
+select * from test limit 10;
 select count(*) from lieu_test;
 
 

@@ -10,7 +10,7 @@ CREATE TABLE lieu_test(
     adresse varchar,
     code_postal varchar,
     adresse_ville varchar,
-    UNIQUE(nom_lieu, type_lieu, adresse, code_postal, adresse_ville)
+    CONSTRAINT unique_v UNIQUE(nom_lieu, type_lieu, adresse, code_postal, adresse_ville)
 );
 
 

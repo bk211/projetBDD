@@ -37,7 +37,13 @@ $$;
 
 DROP TABLE IF EXISTS pool_lieu_test;
 
-CREATE TABLE pool_lieu_test (LIKE lieu_test INCLUDING ALL);
+CREATE TABLE pool_lieu_test (
+    id_lieu int,
+    nom_lieu varchar,
+    type_lieu varchar,
+    adresse varchar,
+    code_postal varchar,
+    adresse_ville varchar);
 
 CREATE OR REPLACE FUNCTION fill_pool_lieu_test(nb int)
 RETURNS boolean
@@ -119,3 +125,4 @@ BEGIN
     return true;
 END
 $$;
+
