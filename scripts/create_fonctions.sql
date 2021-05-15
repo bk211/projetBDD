@@ -103,7 +103,7 @@ END
 $$;
 
 
---Fonctions liées à lieu_test
+--Fonctions liées à test
 
 CREATE OR REPLACE FUNCTION insert_test(_id_lieu int,_id_personne int,_resultat int,_variant varchar,_date Date)
 RETURNS void
@@ -113,7 +113,6 @@ BEGIN
     insert into test(id_lieu,id_personne, resultat, variant, date) values(_id_lieu,_id_personne, _resultat, _variant, _date);
 END
 $$;
-
 
 CREATE OR REPLACE FUNCTION found_test_by_resultat(_resultat int)
 RETURNS table(like test)

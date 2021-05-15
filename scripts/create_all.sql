@@ -14,6 +14,5 @@
 \echo Chargement des trigger
 \i scripts/create_trigger.sql
 
-
 \echo Chargement des fonctions
 \i scripts/create_fonctions.sql

@@ -1,9 +1,7 @@
-\i scripts/create_test.sql
+\i scripts/clear_data.sql
 
-\echo demo test
-truncate table lieu_test;
+\echo demo lieu_test
 
-select * from lieu_test;
 select insert_lieu_test('labo 1', 'laboratoire', '147 faurbourg saint-germain', '77777', 'Paris');
 select insert_lieu_test('labo 2', 'laboratoire', '147 rue goncourt', '75000', 'Paris');
 select insert_lieu_test('labo 3', 'laboratoire', '1 place de la republique', '75000', 'Paris');
@@ -22,10 +20,7 @@ select found_lieu_test_precise('labo 4', 'laboratoire', '55 rue des saint peres'
 \echo update by id
 select update_lieu_test(4, 'labo 4A', 'foo', '47 rue des saint peres', '77777', 'Nantes');
 
-select * from lieu_test;
-
-\i scripts/load_lieu_test.sql
-
+select * from lieu_test limit 10;
 
 select fill_lieu_test(100);
 select * from lieu_test limit 10;
