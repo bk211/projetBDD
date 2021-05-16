@@ -1,6 +1,6 @@
-variant,lower_prob,upper_prob
-CN;0;59
-US;60;89
-FR;90;92
-UK;93;96
-RU;97;100
+variant,lower_prob,upper_prob;;
+EN;0;59
+SA;60;89
+BR;90;92
+IN;93;96
+FR;97;100
