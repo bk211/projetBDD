@@ -103,8 +103,12 @@ BEGIN
         END IF;
         
         fetch from curs_lieu_test into _lieu_test;
-        _resultat := get_random_number(0,1);
-        _variant := draw_variant();
+        _resultat := get_random_number(0,2);
+		IF _resultat = 0 THEN
+			_variant := ''; 
+		ELSE
+			_variant := draw_variant();
+        END IF;
         _date := get_random_date('2020-05-01', '2021-05-01');
         --raise notice 'chosen resultat: %' ,_resultat;
         --raise notice 'counter = %', counter;
